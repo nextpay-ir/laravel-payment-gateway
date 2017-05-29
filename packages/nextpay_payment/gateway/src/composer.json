@@ -1,0 +1,14 @@
+{
+    "name": "root/src",
+    "description": "nextpay payment gateway",
+    "type": "payment gateway",
+    "license": "NextPay.ir Co",
+    "authors": [
+        {
+            "name": "Farzad Latifnia",
+            "email": "register.site0@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
