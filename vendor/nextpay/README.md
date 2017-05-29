@@ -1,3 +1,6 @@
+# laravel-payment-gateway
+Nextpay Payment Gateway for Laravel Framework
+
 
 package's home : [nextpay payment gateway by laravel](http://nextpay.ir) 
 
@@ -29,6 +32,21 @@ STEP 2 : Add `provider` and `facade` in config/app.php
       'Gateway' => \NextPay\Gateway\Gateway::class, // <-- add this line at the end of aliases array
     ]
 
+Step 3: Add package to autoload array in composer.json master file
+        
+    "autoload": {
+        "classmap": [
+            ...
+            "database"
+            ...
+        ],
+        "psr-4": {
+            ...
+            "App\\": "app/",
+            ...
+            "NextpayPayment\\Gateway\\": "packages/nextpay_payment/gateway/src"
+        }
+    },
 Step 3:  
 
     php artisan vendor:publish --provider=NextPay\Gateway\GatewayServiceProvider
