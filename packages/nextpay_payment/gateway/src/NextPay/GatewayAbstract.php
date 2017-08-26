@@ -7,14 +7,14 @@
  * Date: 5/15/17
  * Time: 1:40 PM
  */
-namespace NextPay\Gateway;
+namespace NextpayPayment\Gateway;
 
 use Illuminate\Support\Facades;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-abstract class PortAbstract
+abstract class GatewayAbstract
 {
 	/**
 	 * Transaction id
@@ -80,9 +80,6 @@ abstract class PortAbstract
 	/**
 	 * Initialize of class
 	 *
-	 * @param Config $config
-	 * @param DataBaseManager $db
-	 * @param int $port
 	 */
 	function __construct()
 	{
@@ -217,7 +214,7 @@ abstract class PortAbstract
 			'trans_id' => $trans_id,
 			'gateway' => $this->getGatewayName(),
 			'price' => $this->amount,
-			'status' => ConstGateway::TRANSACTION_PENDING,
+			'status' => '-1',
 			'ip' => Request::getClientIp(),
 			'payment_date' => Carbon::now(),
 			'id_commodity' => '1',

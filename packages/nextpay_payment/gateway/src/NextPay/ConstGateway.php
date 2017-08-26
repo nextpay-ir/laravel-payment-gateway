@@ -1,6 +1,7 @@
 <?php
+namespace NextpayPayment\Gateway;
 
-namespace NextPay\Gateway;
+use NextpayPayment\Gateway\NextPay;
 
 class ConstGateway
 {

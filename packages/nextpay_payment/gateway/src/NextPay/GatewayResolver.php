@@ -1,12 +1,8 @@
 <?php
 
-namespace NextPay\Gateway;
+namespace NextpayPayment\Gateway;
 
-use NextPay\Gateway\NextPay;
-use NextPay\Gateway\Exceptions\RetryException;
-use NextPay\Gateway\Exceptions\PortNotFoundException;
-use NextPay\Gateway\Exceptions\InvalidRequestException;
-use NextPay\Gateway\Exceptions\NotFoundTransactionException;
+use NextPay\Gateway\ConstGateway;
 use Illuminate\Support\Facades\DB;
 
 class GatewayResolver
@@ -113,9 +109,6 @@ class GatewayResolver
 
 	/**
 	 * Create new object from port class
-	 *
-	 * @param int $gateway
-	 * @throws PortNotFoundException
 	 */
 	function make($gateway)
 	{
@@ -131,7 +124,7 @@ class GatewayResolver
 
 		$this->gateway = $gateway;
 		$this->gateway->setConfig($this->config); // injects config
-		$this->gateway->setPortName($name); // injects config
+		$this->gateway->setGatewayName($name); // injects config
 		$this->gateway->boot();
 
 		return $this;

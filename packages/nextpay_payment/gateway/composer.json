@@ -1,0 +1,24 @@
+{
+    "name": "nextpay_payment/gateway",
+    "description": "NextPay Payment Gateway Class.",
+    "type": "library",
+    "keywords": ["NextPay", "laravel", "iran", "payment", "gateway", "port", "bank", "pay", "iranian-banks", "persian-banks", "pardakht","dargah","shaparak","poolport"],
+    "homepage": "https://nextpay.ir",
+    "license": "NextPayCo.",
+    "authors": [
+        {
+            "name": "NextPay",
+            "email": "info@nextpay.ir",
+            "homepage": "https://nextpay.ir"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "NextPay\\": "src/NextPay/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -1,7 +1,10 @@
 <?php
 
+namespace NextpayPayment\Gateway;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use NextPay\Gateway\ConstGateway;
 
 class CreateGatewayTransactionsTable extends Migration
@@ -24,11 +27,8 @@ class CreateGatewayTransactionsTable extends Migration
 			$table->enum('gateway', [
                 ConstGateway::NEXTPAY,
 			]);
-            $table->enum('status', [
-                ConstGateway::TRANSACTION_PENDING,
-                ConstGateway::TRANSACTION_SUCCEED,
-                ConstGateway::TRANSACTION_FAILED,
-            ])->default(ConstGateway::TRANSACTION_PENDING);
+            $table->integer('status')->default(ConstGateway::TRANSACTION_PENDING);
+            $table->integer('state')->default(ConstGateway::TRANSACTION_PENDING);
 			$table->decimal('price', 15, 2);
 			$table->string('trans_id', 50)->nullable();
 			$table->string('card_number', 50)->nullable();

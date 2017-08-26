@@ -8,13 +8,15 @@
  * Time: 1:37 PM
  */
 
-namespace NextPay\Gateway;
+namespace NextpayPayment\Gateway;
 
-use NextPay\Gateway\Exceptions\BankException;
+use Exception;
 
-class NextPayException extends BankException
+class NextPayException extends Exception
 {
     protected $error_code;
+    protected $code=-1;
+    protected $message = 'حالت پیش فرض و در انتظار واریز';
     public $errors = array(
         0 => "تراکنش تکمیل و موفق است",
         -1 => "حالت پیش فرض تراکنش",

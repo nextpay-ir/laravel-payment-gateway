@@ -12,17 +12,24 @@ namespace NextpayPayment\Gateway;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-use NextPay\Gateway\NextPay;
+use NextpayPayment\Gateway\NextPay;
 
 
 class NextpayPaymentController extends Controller
 {
+    /**
+     * @var Config
+     */
+    public $config;
+
     public function index($timezone = NULL)
     {
+        return view('nextpay::request', compact('trans_id', 'timezone'));
     }
 
     public function request()
     {
+        //$this->config = app('config');
         $nextpay = new NextPay();
         $nextpay->setAmount(1200);
         $nextpay->token();

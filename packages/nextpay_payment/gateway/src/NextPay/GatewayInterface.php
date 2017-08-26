@@ -1,6 +1,6 @@
 <?php
 
-namespace NextPay\Gateway;
+namespace NextpayPayment\Gateway;
 
 interface GatewayInterface
 {

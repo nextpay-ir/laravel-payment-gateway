@@ -8,16 +8,15 @@
  * Time: 2:35 PM
  */
 
-namespace NextPay\Gateway;
+namespace NextpayPayment\Gateway;
 
-use DateTime;
-use Illuminate\Support\Facades\Input;
-use NextPay\Gateway\ConstGateway;
 use SoapClient;
-use NextPay\Gateway\GatewayInterface;
-use NextPay\Gateway\GatewayAbstract;
+use NextpayPayment\Gateway\GatewayInterface;
+use NextpayPayment\Gateway\GatewayAbstract;
+use NextpayPayment\Gateway\NextPayException;
+use NextpayPayment\Gateway\ConstGateway;
 
-class NextPay extends PortAbstract implements GatewayInterface
+class NextPay extends GatewayAbstract implements GatewayInterface
 {
 	/**
 	 * Variable NextPay payment gateway	 *
@@ -52,8 +51,10 @@ class NextPay extends PortAbstract implements GatewayInterface
     {
         $trust = true;
         $this->callback_uri = config('gateway.nextpay.callback_uri','None');
-        $this->api_key = config('gateway.nextpay.api_key','None');
-        $this->setGatewayName(ConstGateway::NEXTPAY);
+        $this->api_key = config('gateway.nextpay.apikey','None');
+//        $api_key = app('config')->get('gateway.nextpay.apikey');
+        $const_gateway = new ConstGateway();
+        $this->setGatewayName($const_gateway::NEXTPAY);
         if(is_array($params))
         {
             foreach ($this->keys_for_verify as $key )
