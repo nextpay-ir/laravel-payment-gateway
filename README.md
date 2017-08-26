@@ -52,6 +52,11 @@ Step 4:
         4.2 copy files migration into database/migrations/
     Else
         php artisan migrate
+        
+Default Path:
+    
+    Request for generate token : server address [with post]/nextpay/request/
+    Response for verify transaction : server address [with post]/nextpay/callback/
 
 
 Configuration file is placed in config/gateway.php , open it and enter your banks credential:
