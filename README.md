@@ -46,6 +46,7 @@ Step 3:
     php artisan vendor:publish --provider=NextpayPayment\Gateway\GatewayServiceProvider
 
 Step 4:
+
     IF files in boot provider not moved to related folder doing follow step:
         4.1 copy file  gateway.php into config directory [Master]
         4.2 copy files migration into database/migrations/
