@@ -105,7 +105,7 @@ and in your callback :
        echo $e->getMessage();
     }  
 
-If you are intrested to developing this package you can help us by these ways :
+If you are interested to developing this package you can help us by these ways :
 
  1. Improving documents.
  2. Reporting issue or bugs.
