@@ -23,14 +23,7 @@ STEP 2 : Add `provider` and `facade` in config/app.php
     'providers' => [
       ...
       NextpayPayment\Gateway\NextpayServiceProvider::class, // <-- add this line at the end of provider array
-      NextPay\Gateway\GatewayServiceProvider::class,
     ],
-
-
-    'aliases' => [
-      ...      
-      'Gateway' => \NextPay\Gateway\Gateway::class, // <-- add this line at the end of aliases array
-    ]
 
 Step 3: Add package to autoload array in composer.json master file
         
@@ -50,10 +43,14 @@ Step 3: Add package to autoload array in composer.json master file
 Step 3:  
 
     php artisan vendor:publish --provider=NextPay\Gateway\GatewayServiceProvider
+    php artisan vendor:publish --provider=NextpayPayment\Gateway\GatewayServiceProvider
 
-Step 4: 
-
-    php artisan migrate
+Step 4:
+    IF files in boot provider not moved to related folder doing follow step:
+        4.1 copy file  gateway.php into config directory [Master]
+        4.2 copy files migration into database/migrations/
+    Else
+        php artisan migrate
 
 
 Configuration file is placed in config/gateway.php , open it and enter your banks credential:
