@@ -260,8 +260,6 @@ abstract class GatewayAbstract
 	 */
 	protected function setTransactionId($trans_id)
 	{
-	    var_dump($trans_id);
-	    var_dump($this->OrderId);
 		return $this->getTable()->whereId($this->OrderId)->update([
 			'trans_id' => $trans_id,
 		]);
